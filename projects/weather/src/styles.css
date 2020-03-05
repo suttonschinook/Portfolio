@@ -1,3 +1,7 @@
 *{
     margin: 0;
 }
+@font-face{
+    font-family: Misfits;
+    src: url(./fonts/MISFITS_.TTF);
+}
