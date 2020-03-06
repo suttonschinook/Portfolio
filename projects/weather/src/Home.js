@@ -1,15 +1,24 @@
-import React from "react"
+import React, {useContext} from "react"
 import styled from "styled-components"
+import {WeatherContext} from "./Context/WeatherContext"
 
 const StyledHome = styled.div`
     display: flex;
-    height: 75vh;
+    height: 80vh;
+    width: 100vw;
     background-color: rebeccapurple;
 `
+
 export default function Home(){
+    const {getWX} = useContext(WeatherContext)
+    const handleClick = (e) =>{
+        e.preventDefault()
+        getWX()
+    }
     return(
         <StyledHome>
-            <p>Stuff</p>
+            <input></input>
+            <button onClick={handleClick}>WTW?</button>
         </StyledHome>
     )
 }

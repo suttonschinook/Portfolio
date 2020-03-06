@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const StyledHeader = styled.header`
     display: flex;
-    height: 10vh;
+    height: 15vh;
     justify-content: space-between;
     align-items: center;
     font-family: Misfits;
@@ -14,16 +14,16 @@ const StyledHeader = styled.header`
     const StyledNavbar = styled.div`
     display: flex;
     height: 5vh;
-    justify-content: space-evenly;
+    justify-content: space-between;
     
 `
 export default function Header(){
     return(
         <StyledHeader>
-            <p>What's the Weather?</p>
+            <p>What's the Weather? (WTW?)</p>
             <StyledNavbar>
-                <p>home</p>
-                <p>about</p>
+                <span>home</span>
+                <span>about</span>
             </StyledNavbar>
         </StyledHeader>
     )

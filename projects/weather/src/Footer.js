@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const StyledFooter = styled.footer`
     display: flex;
-    height: 10vh;
+    height: 5vh;
     text-decoration: none;
 `
 export default function Footer(){
