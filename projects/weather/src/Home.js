@@ -10,10 +10,10 @@ const StyledHome = styled.div`
 `
 
 export default function Home(){
-    const {getWX} = useContext(WeatherContext)
+    const {getLocation} = useContext(WeatherContext)
     const handleClick = (e) =>{
         e.preventDefault()
-        getWX()
+        getLocation()
     }
     return(
         <StyledHome>
