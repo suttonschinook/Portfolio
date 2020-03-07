@@ -7,7 +7,7 @@ export default function AVWXProvider(props){
     })
 
 function getWX(airport){
-        fetch('https://api.checkwx.com/metar/',{airport},'/decoded?pretty=1',{
+        fetch('https://api.checkwx.com/metar/'+{airport}+'/decoded?pretty=1',{
             headers:{
                 "x-api-key": process.env.REACT_APP_AVWX_APIKEY
             }

@@ -9,7 +9,7 @@ const StyledFooter = styled.footer`
 export default function Footer(){
     return(
         <StyledFooter>
-            <a href="https://darksky.net/dev" target="_blank">Powered by Dark Sky</a>
+            <a href="https://darksky.net/dev" target="_blank" rel="noopener noreferrer">Powered by Dark Sky</a>
         </StyledFooter>
     )
 }

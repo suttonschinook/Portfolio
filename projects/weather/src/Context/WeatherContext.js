@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 export const WeatherContext = React.createContext()
 const axios = require('axios')
 export default function WeatherProivider(props){
@@ -8,8 +8,8 @@ export default function WeatherProivider(props){
     })
     
 
-function getLocation(){
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key='+process.env.REACT_APP_GEOCODING_APIKEY)
+function getLocation(address){
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ address+'&key='+process.env.REACT_APP_GEOCODING_APIKEY)
     .then(response => {
         console.log(response)
         const {location} = response.data.results[0].geometry
