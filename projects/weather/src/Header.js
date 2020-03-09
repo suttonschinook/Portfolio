@@ -6,9 +6,10 @@ const StyledHeader = styled.header`
     height: 15vh;
     justify-content: space-between;
     align-items: center;
-    font-family: Misfits;
-    font-size: 50px;
-    color: whitesmoke;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 40px;
+    color: black;
     background-image: linear-gradient(to left , skyblue, grey);
     `
     const StyledNavbar = styled.div`
@@ -22,8 +23,8 @@ export default function Header(){
         <StyledHeader>
             <p>What's the Weather? (WTW?)</p>
             <StyledNavbar>
-                <span>home</span>
-                <span>about</span>
+                <p>home</p>
+                <p>about</p>
             </StyledNavbar>
         </StyledHeader>
     )
