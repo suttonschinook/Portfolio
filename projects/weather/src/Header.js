@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import {Link} from "react-router-dom"
 
 const StyledHeader = styled.header`
     display: flex;
@@ -23,8 +24,9 @@ export default function Header(){
         <StyledHeader>
             <p>What's the Weather? (WTW?)</p>
             <StyledNavbar>
-                <p>home</p>
-                <p>about</p>
+                <Link to="/">home</Link>
+                <Link to="/about">about</Link>
+                <Link to="/AVWX">AVWX</Link>
             </StyledNavbar>
         </StyledHeader>
     )

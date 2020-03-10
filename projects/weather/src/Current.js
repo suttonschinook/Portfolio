@@ -29,7 +29,7 @@ export default function Current(){
     return(
         <StyledCurrent>
             <Skycon />
-            <StyledConditions>Currently it is {currently.summary}</StyledConditions>
+            <StyledConditions>Currently in it is {currently.summary}</StyledConditions>
             <StyledSummary>Current Temp:{currently.temperature}</StyledSummary>
             <StyledSummary>Feels like: {currently.apparentTemperature}</StyledSummary>
             <StyledSummary>Dew Point: {currently.dewPoint}</StyledSummary>

@@ -3,48 +3,26 @@ export const WeatherContext = React.createContext()
 const axios = require('axios')
 export default function WeatherProivider(props){
     const [weatherState, setWeatherState] = useState({
+        avwx:{},
         results: {
-            data: {
-                currently:{
-                    time: 1583774029,
-                    summary: "Mostly Cloudy",
-                    icon: "partly_cloudy_day",
-                    nearestStormDistance: 6,
-                    nearestStormBearing: 345,
-                    precipIntensity: 0,
-                    precipProbability: 0,
-                    temperature: 54.03,
-                    apparentTemperature: 54.03,
-                    dewPoint: 30.19,
-                    humidity: 0.4,
-                    pressure: 1018.4,
-                    windSpeed: 7.84,
-                    windGust: 11.36,
-                    windBearing: 207,
-                    cloudCover: 0.84,
-                    uvIndex: 2,
-                    visibility: 10,
-                    ozone: 376.3,
-                }
             }
-        },
     })
 
 useEffect(() => {
     getLocation("Salt Lake City")
 },  [])
 
-const icon = weatherState.results.data.currently
-
-useEffect(() =>{
-    updateIcon()
-    setWeatherState(prev => ({...prev, iconUpdate}))
-}, [icon])
-
-let iconUpdate =""
-
-function updateIcon(){
-    iconUpdate = weatherState.results.data.currently.icon.toUpperCase().split("-").join("_")
+function getAVWX(airport){
+    console.log(airport)
+    fetch('https://api.checkwx.com/metar/'+{airport}+'/decoded?pretty=1',{
+        headers:{
+            "x-api-key": process.env.REACT_APP_AVWX_APIKEY
+        }
+    })
+    .then(response => response.json())
+    .then(response => {
+        setWeatherState(prev =>({...prev, avwx: response.data}))
+    })
 }
 
 function getLocation(address){
@@ -61,7 +39,7 @@ function getWX(lat, lng){
         }).catch (err =>  console.log(err))}
     return(
         <WeatherContext.Provider
-            value={{...weatherState.results, getLocation
+            value={{...weatherState.results, getLocation, getAVWX
         }}>
             {props.children}
         </WeatherContext.Provider>

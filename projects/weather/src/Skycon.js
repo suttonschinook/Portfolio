@@ -2,7 +2,6 @@ import React, {useContext} from "react"
 import {WeatherContext} from "./Context/WeatherContext"
 import styled from "styled-components"
 import Skycons from "react-skycons"
-import { unstable_renderSubtreeIntoContainer } from "react-dom"
 
 const StyledSkycon = styled.div`
     display: grid;
@@ -13,11 +12,11 @@ const StyledSkycon = styled.div`
 `
 
 export default function Skycon(){
-    const {iconUpdate} = useContext(WeatherContext)
+    const {currently} = useContext(WeatherContext).data
     return(
         <StyledSkycon>
             <Skycons color='black' 
-                icon={iconUpdate} 
+                icon={currently.icon.toUpperCase().split("-").join("_")} 
                 autoplay={true} width= '50px' />
         </StyledSkycon>
     )
