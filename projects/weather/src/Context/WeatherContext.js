@@ -13,15 +13,14 @@ useEffect(() => {
 },  [])
 
 function getAVWX(airport){
-    console.log(airport)
-    fetch('https://api.checkwx.com/metar/'+{airport}+'/decoded?pretty=1',{
+    axios.get('https://api.checkwx.com/metar/'+airport+'/decoded?pretty=1',{
         headers:{
             "x-api-key": process.env.REACT_APP_AVWX_APIKEY
         }
     })
-    .then(response => response.json())
     .then(response => {
-        setWeatherState(prev =>({...prev, avwx: response.data}))
+        console.log(response)
+        setWeatherState(prev =>({...prev, avwx: response}))
     })
 }
 

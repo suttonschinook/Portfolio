@@ -33,9 +33,15 @@ const StyledInput = styled.input`
     height: 50px;
     width: 100px;
 `
+const StyledResults = styled.div`
+    position: relative;
+    background-color: white;
+    height: 75%;
+    width: 50%;
+    z-index:4;
+`
 export default function AVWX(){
     const {getAVWX} = useContext(WeatherContext)
-
     const [icaoState, setIcaoState] = useState("")
     const handleChange = (e) => {
     const {value} = e.target
@@ -54,6 +60,9 @@ export default function AVWX(){
                 <StyledInput type="text" placeholder="Enter a ICAO" onChange={handleChange}></StyledInput>
                 <button>Click</button>
             </StyledForm>
+            <StyledResults>
+
+            </StyledResults>
             </StyledBackground>
         </StyledMain>
     )
