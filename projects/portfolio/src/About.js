@@ -1,9 +1,15 @@
-import React from "react"
+import React from "react";
+import styled from "styled-components";
 
-export default function About(){
-    return(
-        <div>
-            <p>Hi</p>
-        </div>
-    )
+const StyledAbout = styled.div`
+  display: flex;
+  height: 70vh;
+`;
+
+export default function About() {
+  return (
+    <StyledAbout>
+      <p>Hi</p>
+    </StyledAbout>
+  );
 }
